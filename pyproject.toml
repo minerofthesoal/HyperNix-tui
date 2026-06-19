@@ -1,0 +1,69 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hypercli"
+version = "0.70.3"
+description = "OpenClaw-style red/black TUI for the hyperNix AI toolkit (v0.70.3). Multi-provider, self-skilling, self-upgrading."
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "minerofthesoal"}
+]
+requires-python = ">=3.9"
+keywords = ["hyperNix", "tui", "cli", "ai", "openclaw", "claude-code", "llm"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: POSIX :: Linux",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Software Development :: Libraries",
+]
+dependencies = [
+    "hyperNix==0.70.3",
+    "textual>=0.50.0",
+    "rich>=13.7.0",
+    "httpx>=0.27.0",
+    "click>=8.1.0",
+    "pydantic>=2.0.0",
+    "python-dotenv>=1.0.0",
+    "packaging>=23.0",
+    "duckduckgo-search>=4.1.0",
+    "prompt-toolkit>=3.0.0",
+    "tomli>=2.0.1; python_version<'3.11'",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-asyncio>=0.21",
+    "ruff>=0.1.0",
+    "build>=1.0",
+    "twine>=4.0",
+]
+
+[project.scripts]
+hypercli = "hypercli.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/minerofthesoal/HyperNix-tui"
+Repository = "https://github.com/minerofthesoal/HyperNix-tui"
+Issues = "https://github.com/minerofthesoal/HyperNix-tui/issues"
+Changelog = "https://github.com/minerofthesoal/HyperNix-tui/releases"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["hypercli*"]
+
+[tool.setuptools.package-data]
+hypercli = ["tui/*.tcss", "py.typed"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
